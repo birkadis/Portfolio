@@ -1,0 +1,163 @@
+/* CVfolio — Irina Sidorova. Built 1:1 from Figma file CVfolio_Ir_Sid
+   (frames "Work" 155:6259 and 155:6601). Layout is a fixed 1200px canvas,
+   scaled down to fit narrower screens like the Figma prototype ("min-zoom"). */
+
+:root {
+  --black: #000000;
+  --grey: #848484;
+  --sand: #f8f3ec;
+  --mint: #d6e8e9;
+  --light: #f3f3f3;
+  --lilac: #d4d8f3;
+  --sky: #d7e6f1;
+  --aqua: #e0fdfd;
+  --divider-cv: #f6f6f6;
+  --z: 1;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { background: #ffffff; }
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 400;
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+  overflow-x: hidden;
+}
+
+a { color: inherit; }
+
+.page {
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+  zoom: var(--z);
+  overflow: hidden; /* some Figma text boxes are wider than the 1200px frame */
+}
+
+.a { position: absolute; }
+
+/* ---------- Text ---------- */
+.t { position: absolute; white-space: pre-wrap; overflow-wrap: break-word; }
+.t16 { font-size: 16px; line-height: 24px; }
+.t16-26 { font-size: 16px; line-height: 26px; }
+.t16-30 { font-size: 16px; line-height: 30px; }
+.t16-42 { font-size: 16px; line-height: 42px; }
+.t32 { font-size: 32px; line-height: 42px; }
+.t48 { font-size: 48px; line-height: 42px; }
+.grey { color: var(--grey); }
+.right { text-align: right; }
+b, .b { font-weight: 700; }
+
+/* ---------- Section cards ---------- */
+.card { position: absolute; width: 1160px; border-radius: 32px; }
+
+/* ---------- Divider ---------- */
+.line { position: absolute; height: 0; border-top: 1px solid var(--grey); }
+
+/* ---------- Pills "(Areas of work)" ---------- */
+.pill {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 46px;
+  padding: 0 16px;
+  border: 1px solid var(--grey);
+  border-radius: 32px;
+  font-size: 16px;
+  line-height: 30px;
+  color: var(--grey);
+  white-space: nowrap;
+}
+.pill.s { height: 36px; }
+
+/* ---------- Contact buttons (CV / Dribbble / LinkedIn / Telegram / Mail / Site) ---------- */
+.contacts { position: absolute; display: flex; align-items: center; height: 60.87px; }
+.cbtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60.87px;
+  padding: 10.435px 20.87px;
+  border-radius: 41.739px;
+  font-size: 20.87px;
+  line-height: 39.13px;
+  color: var(--grey);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.cbtn:hover, .cbtn:focus-visible { color: #ffffff; outline: none; }
+.cbtn.cv { width: 71.74px; background: #f3f3f3; }
+.cbtn.cv:hover, .cbtn.cv:focus-visible { background: #000000; }
+.cbtn.dr { width: 125.74px; background: #f6e9ee; }
+.cbtn.dr:hover, .cbtn.dr:focus-visible { background: #e94c89; }
+.cbtn.li { width: 124.74px; background: #e7f0f2; }
+.cbtn.li:hover, .cbtn.li:focus-visible { background: #0365c7; }
+.cbtn.tg { width: 133.74px; background: #e9f5fe; }
+.cbtn.tg:hover, .cbtn.tg:focus-visible { background: #2db9ff; }
+.cbtn.ml { width: 82.74px; background: #f3f3f3; }
+.cbtn.ml:hover, .cbtn.ml:focus-visible { background: #000000; }
+.cbtn.st { width: 79.74px; background: #f8f3ec; }
+.cbtn.st:hover, .cbtn.st:focus-visible { background: #ffc26e; }
+
+/* ---------- Round arrow link ("See more", "Visit site", "Back to portfolio") ---------- */
+.more {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 68px;
+  text-decoration: none;
+  color: var(--black);
+}
+.more .arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 47px;
+  background: #000000;
+  color: #ffffff;
+  font-size: 24px;
+  line-height: 30px;
+  flex-shrink: 0;
+}
+.more:hover .arrow, .more:focus-visible .arrow { background: #ffffff; color: #000000; }
+.more:focus-visible { outline: none; }
+.more .label { font-size: 16px; line-height: 24px; white-space: nowrap; }
+.more.back .label { line-height: 42px; }
+
+/* ---------- Images ---------- */
+.img { position: absolute; display: block; }
+.r32 { border-radius: 32px; }
+.round { border-radius: 50%; object-fit: cover; }
+
+/* ---------- Carousels (prototype "change to" variants) ---------- */
+.car { position: absolute; cursor: pointer; user-select: none; -webkit-user-select: none; }
+.car img { position: absolute; left: 0; top: 0; display: none; }
+.car img.on { display: block; }
+.car.clip { overflow: hidden; }
+.car.fill img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Dots under carousels ---------- */
+.dots { position: absolute; display: flex; gap: 7px; height: 8px; }
+.dots i { display: block; width: 8px; height: 8px; border-radius: 50%; background: rgba(0, 0, 0, 0.15); }
+.dots.light i { background: #d9d9d9; }
+
+/* ---------- CV page ---------- */
+.cv-line { position: absolute; width: 1058px; height: 0; border-top: 2.6365px solid var(--divider-cv); }
+.cv-h2 { font-size: 48px; line-height: 47.457px; font-weight: 700; }
+.cv-h2s { font-size: 47.457px; line-height: 47.457px; font-weight: 700; }
+.cv-job { font-size: 26.365px; line-height: 47.457px; font-weight: 700; }
+.cv-date { font-size: 21.092px; line-height: 29.002px; color: var(--grey); white-space: nowrap; }
+.cv-p { font-size: 18.456px; line-height: 23.729px; }
+.cv-p a, .cv-job a { text-decoration: underline; text-underline-offset: 3px; }
+.cv-p a:hover, .cv-job a:hover { color: var(--grey); }
+.c1 { color: #010101; }
+.c2 { color: #020202; }
