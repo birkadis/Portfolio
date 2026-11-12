@@ -187,3 +187,11 @@ b, .b { font-weight: 700; }
 .cv-bottom .cv-p + .cv-h2s { margin-top: 56px; }
 .cv-bottom .cv-p + .cv-p { margin-top: 20px; }
 .cv-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 72px; }
+
+/* ---------- Smartopus video block (index.html) ---------- */
+.vidbox { overflow: hidden; border-radius: 32px; background: #67b8d3; isolation: isolate; }
+.vidbox > * { position: absolute; left: 0; top: 0; display: block; }
+/* stretched copy: video x 292–308 (always plain background) fills the whole 488px block */
+.vidbox .vid-bg { width: 960px; height: 523px; object-fit: fill; transform-origin: 0 0; transform: scaleX(30.5) translateX(-292px); }
+/* main video, 464px wide like in Figma, only the phone column (140px panels on each side hidden) */
+.vidbox .vid-main { left: 12px; width: 464px; height: 523px; object-fit: cover; clip-path: inset(0 128px 0 128px); }
