@@ -147,8 +147,15 @@ b, .b { font-weight: 700; }
 
 /* ---------- Dots under carousels ---------- */
 .dots { position: absolute; display: flex; gap: 7px; height: 8px; }
-.dots i { display: block; width: 8px; height: 8px; border-radius: 50%; background: rgba(0, 0, 0, 0.15); }
-.dots.light i { background: #d9d9d9; }
+.dots button {
+  position: relative; display: block; width: 8px; height: 8px; padding: 0; border: 0;
+  border-radius: 50%; background: rgba(0, 0, 0, 0.15); cursor: pointer;
+  transition: background-color .2s, transform .2s;
+}
+.dots button::after { content: ""; position: absolute; inset: -8px -4px; } /* bigger tap area */
+.dots button:hover { background: rgba(0, 0, 0, 0.35); }
+.dots button.on { background: rgba(0, 0, 0, 0.7); }
+.dots button:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
 
 /* ---------- CV page ---------- */
 .cv-line { position: absolute; width: 1058px; height: 0; border-top: 2.6365px solid var(--divider-cv); }
@@ -195,3 +202,8 @@ b, .b { font-weight: 700; }
 .vidbox .vid-bg { width: 960px; height: 523px; object-fit: fill; transform-origin: 0 0; transform: scaleX(30.5) translateX(-292px); }
 /* main video, 464px wide like in Figma, only the phone column (140px panels on each side hidden) */
 .vidbox .vid-main { left: 12px; width: 464px; height: 523px; object-fit: cover; clip-path: inset(0 128px 0 128px); }
+
+/* ---------- Unified rounded corners ----------
+   Figma exports have ~32px rounded corners baked in on a white/#f5f5f5 background.
+   Clipping 1px inside with a concentric 31px radius gives a clean 32px corner with no white tips. */
+.rc { clip-path: inset(1px round 31px); border-radius: 32px; }
