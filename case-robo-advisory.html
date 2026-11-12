@@ -10,8 +10,8 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=4">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body class="case-body" style="background:#ffffff">
 <!-- Figma frame 10:9266 "Robo Advisory" (1440×18388), rendered from Figma at 1.782x and cut into strips. -->
@@ -35,7 +35,14 @@
     <video class="case-video" autoplay muted loop playsinline preload="metadata" aria-label="Robo Advisory screens" style="left:699px;top:6123px;width:725px;height:682px;border-radius:0 80px 80px 0">
       <source src="assets/cases/robo-video.mp4" type="video/mp4">
     </video>
+<!-- Text patches so the results match the CV exactly (the Figma render underneath says
+     "80% of the managers' and customers' needs" and "Sales volume after MVP").
+     Outfit is the closest web font to the Navigo used in the layout. -->
+<div class="case-patch" style="left:80px;top:12300px;width:1278px;height:458px;background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;font:500 100px/107px Outfit,sans-serif;color:#000">
+  <p>80% of the managers'<br>needs were closed during<br>the design process</p>
+</div>
+<div class="case-patch" style="left:1036px;top:14706px;width:330px;height:34px;background:#fef6eb;font:400 22px/24px Outfit,sans-serif;color:#2b2d33;padding:6px 0 0 3px;white-space:nowrap">of investments in the pilot region</div>
 </main>
-<script src="script.js?v=4"></script>
+<script src="script.js?v=5"></script>
 </body>
 </html>
