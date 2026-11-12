@@ -207,3 +207,22 @@ b, .b { font-weight: 700; }
    Figma exports have ~32px rounded corners baked in on a white/#f5f5f5 background.
    Clipping 1px inside with a concentric 31px radius gives a clean 32px corner with no white tips. */
 .rc { clip-path: inset(1px round 31px); border-radius: 32px; }
+
+/* ---------- Case study pages (case-*.html) ---------- */
+.case-page .strip { position: absolute; display: block; user-select: none; -webkit-user-drag: none; }
+.case-page .case-video { position: absolute; display: block; object-fit: cover; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.case-back {
+  position: fixed; z-index: 10; left: 16px; bottom: 16px;
+  display: flex; align-items: center; gap: 10px; height: 48px; padding: 0 18px 0 0;
+  border-radius: 48px; background: #ffffff; color: #000000; text-decoration: none;
+  font: 16px/24px "Inter", system-ui, sans-serif; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+.case-back .arrow {
+  display: flex; align-items: center; justify-content: center; width: 48px; height: 48px;
+  border-radius: 48px; background: #000000; color: #ffffff; font-size: 20px;
+}
+.case-back:hover .arrow, .case-back:focus-visible .arrow { background: #ffffff; color: #000000; box-shadow: inset 0 0 0 1px #000; }
+.case-back:focus-visible { outline: none; }
+.case-back { padding: 0; gap: 0; background: transparent; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18); }
+.case-back .label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

@@ -1,11 +1,14 @@
 // Scale the fixed 1200px canvas down on narrow screens (Figma prototype "min-zoom").
 (function () {
   var root = document.documentElement;
+  // Canvas width: 1200px on the home/CV pages, the Figma frame width on case pages (data-w).
+  var pg = document.querySelector('.page[data-w]');
+  var base = pg ? parseFloat(pg.getAttribute('data-w')) : 1200;
   function fit() {
     // clientWidth = layout viewport (stays at device width on phones even
     // while the unscaled 1200px canvas would overflow it).
     var w = Math.min(root.clientWidth || window.innerWidth, window.screen && screen.width ? Math.max(screen.width, 320) : Infinity);
-    var z = Math.min(1, w / 1200);
+    var z = Math.min(1, w / base);
     root.style.setProperty('--z', String(z));
   }
   fit();
