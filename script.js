@@ -2,13 +2,15 @@
 (function () {
   var root = document.documentElement;
   // Canvas width: 1200px on the home/CV pages, the Figma frame width on case pages (data-w).
-  var pg = document.querySelector('.page[data-w]');
+  // Case pages: show the frame at most data-max px wide (same visual scale as the home page).
+  var pg = document.querySelector('[data-w]');
   var base = pg ? parseFloat(pg.getAttribute('data-w')) : 1200;
+  var maxw = pg && pg.getAttribute('data-max') ? parseFloat(pg.getAttribute('data-max')) : base;
   function fit() {
     // clientWidth = layout viewport (stays at device width on phones even
     // while the unscaled 1200px canvas would overflow it).
     var w = Math.min(root.clientWidth || window.innerWidth, window.screen && screen.width ? Math.max(screen.width, 320) : Infinity);
-    var z = Math.min(1, w / base);
+    var z = Math.min(maxw, w) / base;
     root.style.setProperty('--z', String(z));
   }
   fit();
