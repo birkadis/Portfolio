@@ -228,8 +228,7 @@ b, .b { font-weight: 700; }
 .case-back .label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .case-page .case-patch { position: absolute; z-index: 2; }
 
-/* ---------- Case pages: home-page scale + side ears ---------- */
+/* ---------- Case pages: home-page scale on a #f3f3f3 background ---------- */
 .case-html, .case-body { overflow-x: hidden; }
 .case-wrap { position: relative; margin: 0 auto; zoom: var(--z); }
 .case-page { position: relative; overflow: hidden; }
-.case-wrap .ear { position: absolute; display: block; width: 2400px; background-size: 100% 100%; background-repeat: no-repeat; pointer-events: none; }
