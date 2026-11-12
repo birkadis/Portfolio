@@ -72,3 +72,31 @@
     }
   });
 })();
+
+// Videos start loading only when they come near the screen and pause when they leave it,
+// so opening a page doesn't download every video at once.
+(function () {
+  var vids = document.querySelectorAll('video[data-autoplay]');
+  if (!vids.length) return;
+  function start(v) {
+    if (v.preload !== 'auto') { v.preload = 'auto'; v.load(); }
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
+  }
+  if (!('IntersectionObserver' in window)) { Array.prototype.forEach.call(vids, start); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) start(e.target); else if (!e.target.paused) e.target.pause();
+    });
+  }, { rootMargin: '400px 0px' });
+  Array.prototype.forEach.call(vids, function (v) { io.observe(v); });
+})();
+
+// Carousel slides are lazy (hidden until clicked); once the page has loaded,
+// fetch them quietly in the background so switching slides is instant.
+window.addEventListener('load', function () {
+  setTimeout(function () {
+    Array.prototype.forEach.call(document.querySelectorAll('.car img[loading="lazy"]'), function (img) {
+      var pre = new Image(); pre.decoding = 'async'; pre.src = img.currentSrc || img.src;
+    });
+  }, 1500);
+});
