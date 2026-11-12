@@ -161,3 +161,29 @@ b, .b { font-weight: 700; }
 .cv-p a:hover, .cv-job a:hover { color: var(--grey); }
 .c1 { color: #010101; }
 .c2 { color: #020202; }
+
+/* ---------- CV page in document flow (texts follow the PDF CV) ---------- */
+.cv-flow { padding: 0 71px 64px 56px; }
+.cv-flow > .more, .cv-flow > .contacts, .cv-flow .cv-foot .more, .cv-flow .cv-foot .contacts { position: relative; }
+.cv-flow .cv-line { position: relative; margin: 42px 0; }
+.cv-top { margin-top: 30px; }
+.cv-name { width: 844px; margin-top: 46px; font-size: 48px; line-height: 52px; font-weight: 700; }
+.cv-sub { margin-top: 6px; }
+.cv-lead { width: 844px; margin-top: 20px; }
+.cv-open { margin-top: 12px; }
+.cv-flow > .contacts { margin-top: 32px; }
+.cv-flow .cv-h2 { margin-bottom: 8px; }
+.cv-job-block { margin-top: 40px; }
+.cv-flow .cv-line + .cv-job-block { margin-top: 0; }
+.cv-row { display: grid; grid-template-columns: 567px 482px; column-gap: 24px; margin-top: 11px; }
+.cv-row .cv-p + .cv-p { margin-top: 12px; }
+.cv-list { list-style: none; margin-top: 12px; }
+.cv-list li { position: relative; padding-left: 22px; }
+.cv-list li + li { margin-top: 10px; }
+.cv-list li::before { content: "—"; position: absolute; left: 0; }
+.cv-bottom { margin-top: 0; }
+.cv-bottom .cv-h2s { margin: 0 0 28px; }
+.cv-bottom .cv-p { white-space: pre-wrap; }
+.cv-bottom .cv-p + .cv-h2s { margin-top: 56px; }
+.cv-bottom .cv-p + .cv-p { margin-top: 20px; }
+.cv-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 72px; }
